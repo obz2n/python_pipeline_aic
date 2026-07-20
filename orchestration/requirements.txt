@@ -1,8 +1,0 @@
-prefect>=3.0.0
-requests==2.31.0
-tenacity==8.2.3
-loguru==0.7.2
-duckdb==0.10.1
-python-dotenv==1.0.1
-dbt-core==1.7.9
-dbt-duckdb==1.7.3

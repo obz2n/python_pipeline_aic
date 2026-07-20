@@ -12,9 +12,9 @@ data/warehouse/*.duckdb.wal
 logs/
 
 # dbt
-transform/target/
-transform/dbt_packages/
-transform/logs/
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
 
 # Prefect
 .prefect/
