@@ -6,7 +6,7 @@ Pipeline de dados com arquitetura medalhão utilizando a API pública do **Art I
 
 ## Arquitetura
 
-![img](https://i.postimg.cc/9XYc4zxp/Captura-de-tela-de-2026-03-08-22-05-55.png)
+![img](https://i.postimg.cc/CKbrZgJn/Group-3.png)
 
 
 ### Camadas Medalhão
