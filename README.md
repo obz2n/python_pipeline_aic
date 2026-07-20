@@ -35,22 +35,22 @@ Pipeline de dados com arquitetura medalhão utilizando a API pública do **Art I
 
 ```
 aic-elt-pipeline/
-├── extraction/
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   └── src/
-│       ├── api_client.py      # Comunicação com a API (retry + paginação)
-│       ├── extractor.py       # Orquestra extração → JSON bruto → Bronze
-│       └── utils.py           # Logging e helpers
+├── src/
+│   ├── api_client.py      # Comunicação com a API (retry + paginação)
+│   ├── extractor.py       # Orquestra extração → JSON bruto → Bronze
+│   └── utils.py           # Logging e helpers
 │
 ├── data/
 │   ├── raw/                   # JSONs brutos (gerado em runtime)
 │   └── warehouse/
 │       └── aic.duckdb         # Banco DuckDB (gerado em runtime)
 │
-├── transform/
-│   ├── Dockerfile
-│   ├── requirements.txt
+├── docker/
+│   ├── dockerfile-src
+│   ├── dockerfile-prefect
+│   └── dockerfile-dbt
+│
+├── dbt/
 │   ├── dbt_project.yml
 │   ├── profiles.yml
 │   └── models/
@@ -65,8 +65,7 @@ aic-elt-pipeline/
 │           ├── gold_artworks_by_department.sql
 │           └── gold_top_artists.sql
 │
-├── orchestration/
-│   ├── Dockerfile
+├── pieplines/
 │   ├── requirements.txt
 │   └── flows/
 │       ├── main_flow.py       # Flow principal ELT
