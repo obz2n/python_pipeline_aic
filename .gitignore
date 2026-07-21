@@ -6,10 +6,11 @@ __pycache__/
 *.pyo
 
 # Dados gerados em runtime
-data/raw/
+data/bronze/
+data/warehouse/
 data/warehouse/*.duckdb
 data/warehouse/*.duckdb.wal
-logs/
+*.logs/
 
 # dbt
 dbt/target/

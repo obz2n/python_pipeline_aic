@@ -15,9 +15,9 @@ from dotenv import load_dotenv
 from prefect import flow
 from prefect.logging import get_run_logger
 
-from tasks.extract_task import extract_artworks
-from tasks.load_task import load_artworks
-from tasks.transform_task import run_dbt, run_dbt_test
+from python_pipeline_aic.pipelines.tasks.extract_task import extract_artworks
+from python_pipeline_aic.pipelines.tasks.load_task import load_artworks
+from python_pipeline_aic.pipelines.tasks.transform_task import run_dbt, run_dbt_test
 
 
 @flow(

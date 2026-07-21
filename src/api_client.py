@@ -5,7 +5,9 @@ from loguru import logger
 from config import BASE_URL, FIELDS
 
 
+# ===================================================================
 # -- Parametros de retry para lidar com falhas temporárias da API --
+# ==================================================================
 
 @retry(
     stop=stop_after_attempt(3),
@@ -13,15 +15,19 @@ from config import BASE_URL, FIELDS
     reraise=True,
 )
 
+# ===================================================================
 # -- Funções --
+# ==================================================================
+
 
 def fetch_page(page: int, limit: int = 100) -> dict:
 
     params = {
         "page": page,
         "limit": limit,
-        "fields": FIELDS,
     }
+    if FIELDS:
+        params["fields"] = FIELDS
 
     logger.info(f"Buscando página {page} (limit={limit})")
     response = requests.get(BASE_URL, params=params, timeout=30)
@@ -29,8 +35,8 @@ def fetch_page(page: int, limit: int = 100) -> dict:
 
     return response.json()
 
-
-def fetch_all_pages(max_pages: int = None, limit: int = 100) -> list[dict]:
+# Pegando apenas 10 paginas como amostra para não sobrecarregar a API e evitar bloqueio.
+def fetch_all_pages(max_pages: int = 10, limit: int = 100) -> list[dict]:
 
     all_records = []
     page = 1
